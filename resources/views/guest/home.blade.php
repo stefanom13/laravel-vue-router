@@ -38,7 +38,7 @@
 
 <body>
     <div id="root">
-        qui dentro viene montato vue
+        
     </div>
     <script src="{{ asset('js/front.js') }}"></script>
 </body>
