@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import Posts from '../pages/Posts.index.vue'
+import Contact from '../pages/Contact.vue'
 
 // qua inseriremo  le nostre rotte
 const routes = [
@@ -14,11 +15,11 @@ const routes = [
         name: 'post.index',
         component: Posts
     },
-    // {
-    //     // path:'/posts',
-    //     // name: 'post.index',
-    //     // component: Posts
-    // }
+    {
+        path:'/contact',
+        name: 'contact',
+        component: Contact
+    },
 ] 
 
 // creiamo l istanza
