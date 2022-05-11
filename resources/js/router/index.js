@@ -7,6 +7,7 @@ Vue.use(VueRouter)
 
 import Posts from '../pages/Posts.index.vue'
 import Contact from '../pages/Contact.vue'
+import Post from '../pages/Posts.show.vue'
 
 // qua inseriremo  le nostre rotte
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
         path:'/posts',
         name: 'post.index',
         component: Posts
+    },
+    {
+        path:'/posts/:slug',
+        name: 'post.show',
+        component: Post
     },
     {
         path:'/contact',
