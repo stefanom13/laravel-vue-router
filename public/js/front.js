@@ -2061,6 +2061,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 // import PostsGrid from './Posts.index.vue';
 // import PostsGrid from './Posts.index.vue'
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3332,7 +3338,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
-      _c("header", [_c("h1", [_vm._v("Ultimi Post")])]),
+      _c("header", { staticClass: "py-3" }, [
+        _c("h1", [_vm._v("Ultimi Post")]),
+      ]),
     ])
   },
 ]
@@ -3361,7 +3369,48 @@ var render = function () {
     "div",
     { staticClass: "app bg-orange-300 text-stone-800" },
     [
-      _vm._m(0),
+      _c("header", [
+        _c(
+          "nav",
+          {
+            staticClass:
+              " py-6 bg-orange-800 text-white flex items-center gap-4",
+          },
+          [
+            _c(
+              "ul",
+              { staticClass: "flex items-center gap-4 w-full  justify-center" },
+              [
+                _c(
+                  "li",
+                  { staticClass: "hover:text-sky-700" },
+                  [
+                    _c("router-link", { attrs: { to: "/posts" } }, [
+                      _vm._v("Posts"),
+                    ]),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "hover:text-sky-700" },
+                  [
+                    _c("router-link", { attrs: { to: { name: "contact" } } }, [
+                      _vm._v("Contact"),
+                    ]),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("li", { staticClass: "hover:text-lime-300" }, [
+                  _vm._v("Category"),
+                ]),
+              ]
+            ),
+          ]
+        ),
+      ]),
       _vm._v(" "),
       _c("router-view"),
       _vm._v(" "),
@@ -3370,24 +3419,7 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", [
-      _c("nav", [
-        _c("ul", [
-          _c("li", [_vm._v("Home")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Posts")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Category")]),
-        ]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

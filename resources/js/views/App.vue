@@ -1,11 +1,17 @@
 <template>
   <div class="app bg-orange-300 text-stone-800">
       <header>
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>Posts</li>
-            <li>Category</li>
+        <nav class=" py-6 bg-orange-800 text-white flex items-center gap-4">
+          <ul class="flex items-center gap-4 w-full  justify-center">
+            <li class="hover:text-sky-700">
+              <!-- colleghiamo link (tramite path) -->
+              <router-link to="/posts" >Posts</router-link>
+            </li>
+            <li class="hover:text-sky-700">
+              <!-- colleghiamo link (tramite nome) (entrambi i metodi sono validi) -->
+              <router-link :to="{name:'contact'}" >Contact</router-link>
+            </li>
+            <li class="hover:text-lime-300">Category</li>
           </ul>
         </nav>
       </header>

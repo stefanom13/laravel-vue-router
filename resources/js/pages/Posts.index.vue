@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container">
-            <header>
+            <header class="py-3">
                 <h1>Ultimi Post</h1>
             </header>
         </div>
