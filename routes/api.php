@@ -19,5 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('api')->group(function (){
-    Route::get('/posts','PostController@index');
+    // metodo standard(creiamo due rotte)
+    // Route::get('/posts','PostController@index');
+    // Route::get('/posts/{post}','PostController@show');
+    // metodo semplificato
+    Route::resource('posts','PostController')
+    ->only(['index','show']);
 });

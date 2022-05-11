@@ -15,17 +15,16 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['category','tags'])
-        // ->where('published_at','!=',null)
-        ->orderBy('published_at','desc')
-        ->paginate(8);
+        $posts = Post::with(['category', 'tags'])
+            // ->where('published_at','!=',null)
+            ->orderBy('published_at', 'desc')
+            ->paginate(8);
         // ->get();
 
         return response()->json([
             'posts' => $posts,
             'success' => true,
         ]);
-
     }
 
     /**
@@ -55,9 +54,23 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $post = Post::with(['category', 'tags'])  // con il metodo with prendiamo anche le relazioni
+            ->where('slug', $slug)
+            ->first();
+
+        if ($post) {
+            return response()->json([
+                'post' => $post,
+                'success' => true,
+            ]);
+        }
+
+         return response()->json([
+            'message' => 'Post non trovato',
+            'success' => false,
+        ],404);
     }
 
     /**

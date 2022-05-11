@@ -1921,6 +1921,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     post: {
@@ -2049,6 +2054,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      post: null
+    };
+  },
   mounted: function mounted() {// console.log(this.$route)
   },
   beforeMount: function beforeMount() {// axios.get(`api/posts/${this.$route.params.slug}`)
@@ -3263,6 +3273,25 @@ var render = function () {
             )
           }),
           0
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "py-2" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "p-1 bg-fuchsia-900 text-white rounded-md bc",
+                attrs: {
+                  tag: "button",
+                  to: { name: "post.show", params: { slug: _vm.post.slug } },
+                },
+              },
+              [_vm._v("Leggi articolo\n          ")]
+            ),
+          ],
+          1
         ),
       ]),
     ]
