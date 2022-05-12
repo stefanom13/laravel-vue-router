@@ -2058,24 +2058,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      post: []
+      post: [],
+      loading: true
     };
   },
-  mounted: function mounted() {
-    console.log(this.$route);
+  methods: {
+    fetchPost: function fetchPost() {
+      var _this = this;
+
+      axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (res) {
+        var post = res.data.post;
+        _this.post = post;
+        _this.loading = false;
+      })["catch"](function (err) {
+        console.warn(err);
+      });
+    }
   },
   beforeMount: function beforeMount() {
-    var _this = this;
-
-    axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (res) {
-      var post = res.data.post;
-      _this.post = post;
-    })["catch"](function (err) {
-      console.warn(err);
-    });
+    this.fetchPost(); // axios.get (`/api/posts/${ this.$route.params.slug }`)
+    // .then(res =>{
+    //     const { post } = res.data
+    //     this.post = post
+    // })
+    // .catch(err =>{
+    //     console.warn(err)
+    // })
   }
 });
 
@@ -3432,21 +3445,32 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-6 flex items-center justify-center" }, [
-    _c("div", { staticClass: "w-88 rounded-xl border border-black py-3  " }, [
-      _vm._v("\n      " + _vm._s(_vm.$route.params.slug) + "\n      "),
+  return !_vm.loading
+    ? _c("div", { staticClass: "p-6 flex items-center justify-center" }, [
+        _c("div", { staticClass: "w-82 rounded-xl border border-black py-3" }, [
+          _vm._v("\n        " + _vm._s(_vm.$route.params.slug) + "\n        "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+        ]),
+      ])
+    : _vm._e()
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "w-82" }, [
       _c("img", {
         staticClass: "w-full object-cover",
         attrs: { src: "https://picsum.photos/450/250", alt: "" },
       }),
-      _vm._v(" "),
-      _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
-      _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.post.content))]),
-    ]),
-  ])
-}
-var staticRenderFns = []
+    ])
+  },
+]
 render._withStripped = true
 
 
