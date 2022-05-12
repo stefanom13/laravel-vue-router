@@ -1,10 +1,12 @@
 <template>
     <div v-if="!loading" class="p-6 flex items-center justify-center">
-        <div class="w-82 rounded-xl border border-black py-3">
-            {{ $route.params.slug }}
-            <figure class="w-82">
-                <img src="https://picsum.photos/450/250" class="w-full object-cover" alt="">
-            </figure>
+        <div class="w-9/12 rounded-xl  border border-black px-2 py-3">
+        <p class="text-center">{{ $route.params.slug }}</p>
+            <div class=" flex items-center justify-center ">
+                <figure class="w-96">
+                    <img src="https://picsum.photos/450/250" class="w-full object-cover" alt="">
+                </figure>
+            </div>
             <h1>{{ post.title }}</h1>
             <p>{{ post.content }}</p>
         </div>
