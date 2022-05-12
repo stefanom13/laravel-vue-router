@@ -56,21 +56,21 @@ class PostController extends Controller
      */
     public function show($slug)
     {
-        $post = Post::with(['category', 'tags'])  // con il metodo with prendiamo anche le relazioni
-            ->where('slug', $slug)
-            ->first();
+        // al posto di with potremmo usare [$post->category $post->tags]
+        $post = Post::with(['category', 'tags'])->where('slug', $slug)->first(); // con il metodo with prendiamo  le relazioni
+
 
         if ($post) {
             return response()->json([
                 'post' => $post,
-                'success' => true,
+                'success' => true
             ]);
         }
 
-         return response()->json([
+        return response()->json([
             'message' => 'Post non trovato',
-            'success' => false,
-        ],404);
+            'success' => false
+        ], 404);
     }
 
     /**

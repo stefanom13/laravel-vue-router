@@ -9,7 +9,7 @@
           </ul>
           <div class="py-2">
             <router-link tag="button" class="p-1 bg-fuchsia-900 text-white rounded-md bc" 
-                :to="{name:'post.show', params: { slug: post.slug  } }" >Leggi articolo
+                :to="{name:'posts.show', params: { slug: post.slug  } }" >Leggi articolo
             </router-link> 
           </div>
       </div>

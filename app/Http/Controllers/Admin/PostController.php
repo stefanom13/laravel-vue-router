@@ -89,6 +89,8 @@ class PostController extends Controller
      */
     public function edit( Post $post)
     {
+        // metodo alternativo per eager loadign [permette di caricare le relazioni]
+        $post->load(['category','tags']);
         $categories =Category::all();
         $tags = Tag::all();
        return view('admin.posts.edit',compact('post','categories','tags'));

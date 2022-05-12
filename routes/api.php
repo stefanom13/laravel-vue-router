@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::namespace('api')->group(function (){
+Route::namespace('Api')->group(function (){
     // metodo standard(creiamo due rotte)
     // Route::get('/posts','PostController@index');
     // Route::get('/posts/{post}','PostController@show');

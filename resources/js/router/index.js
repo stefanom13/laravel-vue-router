@@ -14,17 +14,17 @@ const routes = [
     {
         path:'/posts',
         name: 'post.index',
-        component: Posts
+        component: Posts,
     },
     {
         path:'/posts/:slug',
-        name: 'post.show',
-        component: Post
+        name: 'posts.show',
+        component: Post,
     },
     {
         path:'/contact',
         name: 'contact',
-        component: Contact
+        component: Contact,
     },
 ] 
 

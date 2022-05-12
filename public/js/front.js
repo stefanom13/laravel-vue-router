@@ -2053,15 +2053,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      post: null
+      post: []
     };
   },
-  mounted: function mounted() {// console.log(this.$route)
+  mounted: function mounted() {
+    console.log(this.$route);
   },
-  beforeMount: function beforeMount() {// axios.get(`api/posts/${this.$route.params.slug}`)
+  beforeMount: function beforeMount() {
+    var _this = this;
+
+    axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (res) {
+      var post = res.data.post;
+      _this.post = post;
+    })["catch"](function (err) {
+      console.warn(err);
+    });
   }
 });
 
@@ -3285,7 +3299,7 @@ var render = function () {
                 staticClass: "p-1 bg-fuchsia-900 text-white rounded-md bc",
                 attrs: {
                   tag: "button",
-                  to: { name: "post.show", params: { slug: _vm.post.slug } },
+                  to: { name: "posts.show", params: { slug: _vm.post.slug } },
                 },
               },
               [_vm._v("Leggi articolo\n          ")]
@@ -3418,7 +3432,14 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    " + _vm._s(_vm.$route.params.slug) + "\n")])
+  return _c("div", [
+    _vm._v("\n    " + _vm._s(_vm.$route.params.slug) + "\n    "),
+    _c("div", { staticClass: "w-300 h-200" }),
+    _vm._v(" "),
+    _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -19188,7 +19209,7 @@ var routes = [{
   component: _pages_Posts_index_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/posts/:slug',
-  name: 'post.show',
+  name: 'posts.show',
   component: _pages_Posts_show_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
   path: '/contact',
