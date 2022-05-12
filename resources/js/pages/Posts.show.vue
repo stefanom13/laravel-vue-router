@@ -7,8 +7,14 @@
                     <img src="https://picsum.photos/450/250" class="w-full object-cover" alt="">
                 </figure>
             </div>
-            <h1>{{ post.title }}</h1>
-            <p>{{ post.content }}</p>
+            <div>
+                <h1>{{ post.title }}</h1>
+                <p class="text-fuchsia-900 text-l mb-2" v-if="post.category">{{post.category.name}}</p>
+                <ul class="tags flex flex-wrap gap-4 items-center">
+                    <li class="tag px-2 text-xs text-white bg-lime-600 rounded-full" v-for="tag in post.tags" :key="tag.id"> {{tag.name}} </li>
+                </ul>
+                <p>{{ post.content }}</p>
+            </div>
         </div>
     </div>
 </template>

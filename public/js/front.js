@@ -2062,6 +2062,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3459,9 +3465,34 @@ var render = function () {
             _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
-            _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+            _c("div", [
+              _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
+              _vm._v(" "),
+              _vm.post.category
+                ? _c("p", { staticClass: "text-fuchsia-900 text-l mb-2" }, [
+                    _vm._v(_vm._s(_vm.post.category.name)),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "ul",
+                { staticClass: "tags flex flex-wrap gap-4 items-center" },
+                _vm._l(_vm.post.tags, function (tag) {
+                  return _c(
+                    "li",
+                    {
+                      key: tag.id,
+                      staticClass:
+                        "tag px-2 text-xs text-white bg-lime-600 rounded-full",
+                    },
+                    [_vm._v(" " + _vm._s(tag.name) + " ")]
+                  )
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+            ]),
           ]
         ),
       ])
