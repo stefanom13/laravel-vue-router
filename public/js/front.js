@@ -3432,13 +3432,18 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._v("\n    " + _vm._s(_vm.$route.params.slug) + "\n    "),
-    _c("div", { staticClass: "w-300 h-200" }),
-    _vm._v(" "),
-    _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+  return _c("div", { staticClass: "p-6 flex items-center justify-center" }, [
+    _c("div", { staticClass: "w-88 rounded-xl border border-black py-3  " }, [
+      _vm._v("\n      " + _vm._s(_vm.$route.params.slug) + "\n      "),
+      _c("img", {
+        staticClass: "w-full object-cover",
+        attrs: { src: "https://picsum.photos/450/250", alt: "" },
+      }),
+      _vm._v(" "),
+      _c("h1", [_vm._v(_vm._s(_vm.post.title))]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+    ]),
   ])
 }
 var staticRenderFns = []

@@ -1,11 +1,11 @@
 <template>
-  <div>
-      {{ $route.params.slug }}
-      <div class="w-300 h-200">
-        <!-- <img src="https://picsum.photos/450/250" class="w-full object-cover" alt=""> -->
+  <div class="p-6 flex items-center justify-center">
+      <div class="w-88 rounded-xl border border-black py-3  ">
+        {{ $route.params.slug }}
+        <img src="https://picsum.photos/450/250" class="w-full object-cover" alt="">
+        <h1>{{post.title}}</h1>
+        <p>{{post.content}}</p>
       </div>
-      <h1>{{post.title}}</h1>
-      <p>{{post.content}}</p>
   </div>
 </template>
 
